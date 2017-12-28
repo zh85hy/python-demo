@@ -2,7 +2,8 @@
 import os
 
 # If running on Windows, you can use the relative path.
-listing_path = '/Users/hy/Desktop/Learning_Python/python-demo/list_dirs/testing_dirs'
+listing_path = '/Users/hy/Downloads'
+# listing_path = 'Users/hy/Desktop/Learning_Python/python-demo/list_dirs/testing_dirs'
 write_file_name = 'dirs_tree.txt'
 
 
