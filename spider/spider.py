@@ -24,17 +24,20 @@ class Spider:
         # urllib.error.HTTPError: HTTP Error 403: Forbidden
         req = ur.Request(Spider.url, headers=Spider.headers)
 
+        # A string or An object
         # res = request.urlopen(Spider.url)
         res = ur.urlopen(req)
         # print(res)
 
         # htmls = str(res.read(), encoding='utf-8')
         # htmls = res.read()    ＃ bytes
+        # A string
         htmls = res.read().decode('utf-8')
         # print(htmls)
         return htmls
 
     def __analyse_htmls(self, htmls):
+        # A list
         root_htmls = re.findall(Spider.root_pattern, htmls)
         # print(root_htmls)
         htmls_return = []
@@ -51,6 +54,8 @@ class Spider:
             'name': anchor['name'][0].strip(),
             'number': anchor['number'][0].strip()
         }
+        # anchors_refined = map(l, anchors)
+        # print(anchors_refined)
         return map(l, anchors)
 
     def __sort_seed(self, anchor):
@@ -61,6 +66,7 @@ class Spider:
         return number
 
     def __sort(self, anchors):
+        # Iterable
         return sorted(anchors, key=self.__sort_seed, reverse=True)
 
     def __show(self, anchors):
